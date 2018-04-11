@@ -27,12 +27,14 @@ this as a `dependency` as opposed to the default `devDependency`:
 In your application where you would normally have:
 
 ```javascript
-import Ember from 'ember';
+import Component from '@ember/component';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 
-export default Ember.Component.extend({
-  foo: Ember.inject.service(),
+export default Component.extend({
+  foo: service(),
 
-  bar: Ember.computed('someKey', 'otherKey', function() {
+  bar: computed('someKey', 'otherKey', function() {
     var someKey = this.get('someKey');
     var otherKey = this.get('otherKey');
 
